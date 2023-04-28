@@ -44,6 +44,7 @@ resource "aws_lb_listener_rule" "this" {
         var.service_dns_name
       ]
     }
+  }
 
   # condition {
   #   host_header {
