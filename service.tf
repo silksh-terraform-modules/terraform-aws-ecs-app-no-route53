@@ -54,18 +54,18 @@ resource "aws_ecs_service" "this" {
     }
 }
 
-resource "aws_route53_record" "this" {
-  count = length(var.zone_id) > 0 ? 1 : 0
-  zone_id = var.zone_id
-  name    = var.service_dns_name
-  type    = "A"
+# resource "aws_route53_record" "this" {
+#   count = length(var.zone_id) > 0 ? 1 : 0
+#   zone_id = var.zone_id
+#   name    = var.service_dns_name
+#   type    = "A"
 
-  alias {
-    name                   = var.lb_dns_name
-    zone_id                = var.lb_zone_id
-    evaluate_target_health = true
-  }
-}
+#   alias {
+#     name                   = var.lb_dns_name
+#     zone_id                = var.lb_zone_id
+#     evaluate_target_health = true
+#   }
+# }
 
 resource "aws_route53_record" "secondary" {
   count = length(var.zone_id_secondary) > 0 ? 1 : 0

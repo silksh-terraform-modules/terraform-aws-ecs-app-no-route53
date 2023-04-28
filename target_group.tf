@@ -40,16 +40,21 @@ resource "aws_lb_listener_rule" "this" {
 
   condition {
     host_header {
-      values = (
-        length(var.other_service_dns_names) > 0 ? 
-          concat(
-            [aws_route53_record.this[0].name],
-            var.other_service_dns_names
-          ) :
-        [aws_route53_record.this[0].name]
-      )
+      values = var.listener_domains
     }
-  }
+
+  # condition {
+  #   host_header {
+  #     values = (
+  #       length(var.other_service_dns_names) > 0 ? 
+  #         concat(
+  #           [aws_route53_record.this[0].name],
+  #           var.other_service_dns_names
+  #         ) :
+  #       [aws_route53_record.this[0].name]
+  #     )
+  #   }
+  # }
 
   action {
     target_group_arn = aws_lb_target_group.this[0].arn

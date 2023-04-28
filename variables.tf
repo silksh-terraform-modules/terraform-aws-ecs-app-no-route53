@@ -131,9 +131,9 @@ variable "launch_type" {
   default = "EC2"
 }
 
-variable "zone_id" {
-  default = ""
-}
+# variable "zone_id" {
+#   default = ""
+# }
 
 variable "zone_id_secondary" {
   default = ""
@@ -264,4 +264,9 @@ variable "volume_name" {
 variable "host_path" {
   default = ""
   description = "local path on host (volume mounted in fstab or local directory)"
+}
+
+variable lb_listener_domains {
+  default     = []
+  description = "list of domains for listener"
 }
