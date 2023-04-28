@@ -40,7 +40,9 @@ resource "aws_lb_listener_rule" "this" {
 
   condition {
     host_header {
-      values = var.listener_domains
+      values = [
+        var.service_dns_name
+      ]
     }
 
   # condition {

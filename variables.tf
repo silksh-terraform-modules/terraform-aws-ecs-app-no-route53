@@ -265,8 +265,3 @@ variable "host_path" {
   default = ""
   description = "local path on host (volume mounted in fstab or local directory)"
 }
-
-variable lb_listener_domains {
-  default     = []
-  description = "list of domains for listener"
-}
