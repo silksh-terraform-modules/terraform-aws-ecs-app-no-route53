@@ -46,12 +46,6 @@ resource "aws_ecs_service" "this" {
     depends_on = [
       aws_lb_target_group.this[0]
     ]
-
-    lifecycle {
-      ignore_changes = [
-        desired_count
-      ]
-    }
 }
 
 # resource "aws_route53_record" "this" {
