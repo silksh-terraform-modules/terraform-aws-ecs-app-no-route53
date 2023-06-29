@@ -265,3 +265,9 @@ variable "host_path" {
   default = ""
   description = "local path on host (volume mounted in fstab or local directory)"
 }
+
+variable source_ip {
+  type        = list
+  default     = []
+  description = "list of source ip for lb rule"
+}
